@@ -21,7 +21,14 @@ codes = {
     'right': 0x14D,
     'button_left': 0x153,
     'button_right': 0x151,
-    'start': 0x1C
+    'start': 0x1C,
+    'select': 0x36,
+    'sub_1': 0x15D,
+    'sub_2': 0x11D,
+    'light_1': 0x32,
+    'light_2': 0x33,
+    'light_3': 0x34,
+    'light_4': 0x35
 }
 
 def get_bit(b, bitNumber):
@@ -60,6 +67,11 @@ try:
         set_colour('start', get_bit(data2,7), 0, 100, 0)
         set_colour('button_left', get_bit(data1,5), 100, 100, 0)
         set_colour('button_right', get_bit(data1,5), 100, 100, 0)
+        set_colour('select',get_bit(data2,8),100,0,0)
+        set_colour('sub_1',get_bit(data1,5),100,0,100)
+        set_colour('sub_2',get_bit(data1,6),100,0,100)
+        for i in range(1,5):
+            set_colour('light_'+str(i),get_bit(data1,i),100,100,0)
 
         set_colour('left',get_bit(data2,1),100,100,100)
         set_colour('down',get_bit(data2,4),100,100,100)
